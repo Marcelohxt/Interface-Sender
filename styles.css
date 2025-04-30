@@ -400,40 +400,52 @@ body {
 
 /* ================================================ */
 
-/* Botão Novo */
-.btn-primary {
-    background-color: #baf4cf;
-    border-color: #9fd7b4;
-}
-
-.btn-primary:hover {
-    background-color: #128C7E;
-    border-color: #128C7E;
-}
 
 
-/* Botão Importar CSV */
-.btn-group .btn-success { 
-    
-    background-color: #baf4cf;
-    border-color: #9fd7b4;
+/* Estilo base para todos os botões */
+.btn-group .btn,
+.btn-primary,
+.btn-success,
+.btn-info {
+    background-color: #e2f7ef;
+    border-color: #25d366;
+    color: #075e54;
+    border-radius: 12px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out;
 }
 
-.btn-success:hover {
-    background-color: #128C7E;
-    border-color: #128C7E;
+/* Ícones dentro dos botões */
+.btn i {
+    margin-right: 6px;
 }
 
-/* Botão Importar Grupo */
-.btn-group .btn-info {
-    background-color: #baf4cf;
-    border-color: #9fd7b4;
+/* Hover – estilo do botão tipo WhatsApp */
+.btn:hover {
+    background-color: #25d366;
+    color: white;
+    border-color: #128c7e;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.btn-info:hover {
-    background-color: #128C7E;
-    border-color: #128C7E;
+/* Focus (quando clicado) */
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.3);
 }
+
+/* Botões bem alinhados mesmo em telas pequenas */
+.btn-group {
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+
+
+
+
 
 /* ================================================ */
 
@@ -736,3 +748,89 @@ body {
         max-width: 90%;
     }
 } 
+
+
+/* Adicione no seu styles.css */
+
+                                    /* Estilos do Canvas Matrix */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Coloca o canvas atrás de todo conteúdo */
+    opacity: 0.1; /* Ajuste a opacidade conforme necessário */
+}
+
+/* Modo Noturno */
+:root {
+    /* Cores do modo claro (padrão) */
+    --bg-color: #f0f2f5;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+    --border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Classe para modo noturno */
+.dark-mode {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Aplicando as variáveis */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+/* Botão de alternar modo noturno */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+
+
+/* Adicione estas classes para ajustar cores específicas no modo noturno */
+.dark-mode .card {
+    background-color: var(--card-bg);
+}
+
+.dark-mode .table {
+    color: var(--text-color);
+}
+
+.dark-mode .navbar {
+    background-color: #1a1a1a;
+}
+
+.dark-mode #matrixCanvas {
+    opacity: 0.15; /* Um pouco mais visível no modo noturno */
+}
