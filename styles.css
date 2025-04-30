@@ -1,0 +1,738 @@
+/* Variáveis de Cor */
+:root {
+    --primary-color: #25D366;
+    --secondary-color: #128C7E;
+    --dark-color: #075E54;
+    --light-color: #DCF8C6;
+    --danger-color: #DC3545;
+    --warning-color: #FFA500;
+    --success-color: #28A745;
+}
+
+/* Estilos Gerais */
+body {
+    background-color: #9c9c9c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; /* Garante que não há espaço acima */
+    padding: 0; /* Garante que não há espaço abaixo */
+}
+
+
+/* ================================================ */
+
+/* Barra de botões logo abaixo da navbar configurações, historico, perfil, ajuda e sair */
+
+.top-buttons-bar {
+    position: fixed;
+    top: 48px; /* abaixo da navbar */
+    left: 0;
+    right: 0;
+    padding: 12px 20px;
+    background-color: #e9ecef;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    
+}
+
+.buttons-wrapper {
+    margin-right: auto; /* empurra para a esquerda */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+
+
+
+
+
+
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.navbar-text {
+    color: white !important;
+    font-size: 0.9rem;
+}
+
+.navbar-expand-lg {
+    color: white !important;
+    font-size: 10rem;
+}
+
+
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+/* Tabela de Números */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: 0.9rem;
+}
+
+/* Status de Envio */
+.status-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.status-item {
+    padding: 0.5rem;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.progress {
+    height: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+/* Botões */
+.btn-group .btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.75rem;          /* Reduz o tamanho da fonte dos botões */
+    margin: 0 2px;               /* Diminui o espaçamento entre os botões */
+    line-height: 1;              /* Reduz a altura da linha do texto */
+    padding: 0.15rem 0.35rem;    /* Reduz o padding interno dos botões */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #2d3436;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color); 
+
+} 
+
+/* Área de Mensagem */
+#mensagem {
+    resize: none;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Toolbar de Variáveis */
+.variables-toolbar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag-button {
+    padding: 0.25rem 0.75rem;
+    background-color: var(--light-color);
+    border: none;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.tag-button:hover {
+    background-color: #c5e9b4;
+}
+
+/* Preview de Anexos */
+.anexos-preview {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    min-height: 100px;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.anexo-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.anexo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-anexo {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Status de Contato */
+.status-pending {
+    color: var(--warning-color);
+}
+
+.status-success {
+    color: var(--success-color);
+}
+
+.status-error {
+    color: var(--danger-color);
+}
+
+/* Scrollbar Personalizada */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0.5rem;
+        margin-top: 100px;
+    }
+    
+    .card {
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-group {
+        flex-wrap: wrap;
+    }
+    
+    .variables-toolbar {
+        flex-direction: column;
+    }
+}
+
+/* Animações */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tooltips */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+}
+
+[data-tooltip]:hover:before {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilos Gerais */
+body {
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1rem;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Estilos da Lista de Templates */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.template-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Estilos dos Campos de Variáveis */
+.variable-field {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-items: start;
+}
+
+.variable-field .form-control {
+    flex: 1;
+}
+
+.variable-field .btn-remove-variable {
+    padding: 0.375rem 0.75rem;
+}
+
+/* Estilos do Container de Variáveis */
+.variable-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.variable-row input {
+    flex: 1;
+}
+
+.variable-row button {
+    flex-shrink: 0;
+}
+
+/* Estilos da Área de Mensagem */
+#messageInput {
+    resize: vertical;
+}
+
+/* Estilos dos Modais */
+.modal-content {
+    border-radius: 0.5rem;
+}
+
+.modal-header {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+/* Estilos dos Botões */
+
+/* ================================================ */
+
+/* Botão Novo */
+.btn-primary {
+    background-color: #baf4cf;
+    border-color: #9fd7b4;
+}
+
+.btn-primary:hover {
+    background-color: #128C7E;
+    border-color: #128C7E;
+}
+
+
+/* Botão Importar CSV */
+.btn-group .btn-success { 
+    
+    background-color: #baf4cf;
+    border-color: #9fd7b4;
+}
+
+.btn-success:hover {
+    background-color: #128C7E;
+    border-color: #128C7E;
+}
+
+/* Botão Importar Grupo */
+.btn-group .btn-info {
+    background-color: #baf4cf;
+    border-color: #9fd7b4;
+}
+
+.btn-info:hover {
+    background-color: #128C7E;
+    border-color: #128C7E;
+}
+
+/* ================================================ */
+
+/* Navbar espaçamento */
+
+/* Ajusta a altura da navbar */
+.navbar.navbar-expand-lg {
+    height: 50px; /* Diminui a altura - ajuste conforme necessário */
+    min-height: 50px; /* Força altura mínima */
+    padding: 0 15px; /* Reduz o padding horizontal */
+}
+
+/* Ajusta o tamanho e espaçamento do título */
+.navbar .navbar-brand {
+    font-size: 1.1rem; /* Diminui o tamanho da fonte */
+    margin-right: 20px; /* Espaço após o título */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espaço entre o ícone e o texto */
+}
+
+/* Ajusta o texto da licença */
+.navbar .navbar-text {
+    font-size: 0.9rem; /* Diminui o tamanho da fonte */
+    margin-left: auto; /* Empurra para a direita */
+}
+
+/* Ajusta o ícone do WhatsApp */
+.navbar .bi-whatsapp {
+    font-size: 1.2rem; /* Tamanho do ícone */
+}
+
+/* Container para alinhar os itens */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primary-color);
+    padding: 0.5rem 1rem;
+}
+
+/* ================================================ */
+
+
+
+
+.btn-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Estilos de Gerenciamento de Templates */
+#templateList {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Estilo para itens de template */
+.template-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.template-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Estilo para botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Estilo para ícones */
+.bi {
+    font-size: 1.1em;
+}
+
+/* Estilos de Gerenciamento de Variáveis */
+.variable-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.variable-row input {
+    flex: 1;
+}
+
+.variable-row .btn-remove {
+    flex-shrink: 0;
+}
+
+/* Barra de rolagem personalizada para lista de templates */
+.template-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.template-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.template-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.template-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Animações para adicionar/remover elementos */
+.template-list .list-group-item,
+.variable-field {
+    transition: all 0.3s ease;
+}
+
+/* Efeitos de hover */
+.btn:hover {
+    transform: translateY(-1px);
+    transition: transform 0.4s;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Estilos do Chat */
+.chat-container {
+    height: 500px;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.client-message {
+    background-color: #dcf8c6;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.assistant-message {
+    background-color: #ffffff;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-content {
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.message-time {
+    font-size: 11px;
+    color: #999;
+    margin-top: 5px;
+    text-align: right;
+}
+
+/* Indicador de digitação */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    width: fit-content;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background-color: #999;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: typing 1s infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Animações */
+@keyframes typing {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Área de entrada de mensagem */
+.message-input-container {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message-input {
+    flex: 1;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    background-color: #f0f2f5;
+    resize: none;
+    max-height: 100px;
+    outline: none;
+}
+
+.send-button {
+    background-color: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.send-button:hover {
+    background-color: #128C7E;
+}
+
+.btn btn-sm btn-primary {
+    background-color: #18d751d1;
+    border-color: #18d751d1;
+}
+
+
+@keyframes typeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .chat-container {
+        height: 400px;
+    }
+    
+    .message {
+        max-width: 90%;
+    }
+} 

@@ -1,0 +1,136 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node (caso use alguma interface web)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs e databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Arquivos de configuração com senhas/tokens
+config.ini
+secrets.json
+.env.local
+.env.*.local
+*.key
+credentials.json
+
+# Arquivos de mídia e dados
+*.mp4
+*.mp3
+*.wav
+*.avi
+*.mov
+*.wmv
+*.csv
+*.xls
+*.xlsx
+*.pdf
+*.zip
+*.tar.gz
+*.rar
+
+# Selenium
+geckodriver.log
+chromedriver.log
+*.session
+
+# WhatsApp Web
+.wwebjs_auth/
+.wwebjs_cache/
+
+# Outros
+.directory
+*.bak
+*.tmp
+*.temp
+.*.swp
+*.*~
+\#*\#
+.~lock.*# 
