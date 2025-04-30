@@ -760,7 +760,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1; /* Coloca o canvas atrás de todo conteúdo */
-    opacity: 0.1; /* Ajuste a opacidade conforme necessário */
+    opacity: 0.6; /* Ajuste a opacidade conforme necessário */
 }
 
 /* Modo Noturno */

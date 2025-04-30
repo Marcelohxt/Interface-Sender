@@ -200,3 +200,88 @@ class TemplateManager {
 document.addEventListener('DOMContentLoaded', () => {
     window.templateManager = new TemplateManager();
 }); 
+
+
+
+
+// ================================================
+                                               
+// Efeito Matrix
+
+function initMatrix() {
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+  
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  
+    const letters = 'LILITHEONOAHGHIJKLMNLILITHEONOAHABCDEFGHIJKLMNLILITHEONOAHABCDEFGHIJKLMNLILITHEONOAHABCDEFGHIJKLMNLILITHEONOAH'.split('');
+    const fontSize = 20;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+  
+    for (let i = 0; i < columns; i++) {
+        drops[i] = 1;
+    }
+  
+    function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+        ctx.fillStyle = '#0F0';
+        ctx.font = fontSize + 'px monospace';
+  
+        for (let i = 0; i < drops.length; i++) {
+            const text = letters[Math.floor(Math.random() * letters.length)];
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+  
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+  
+            drops[i]++;
+        }
+    }
+  
+    setInterval(draw, 70);
+  
+    // Ajusta o tamanho do canvas quando a janela é redimensionada
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+  }
+  
+  // Controle do Modo Noturno
+  function initDarkMode() {
+    const themeToggle = document.getElementById('themeToggle');
+    const icon = themeToggle.querySelector('i');
+    
+    // Verifica se há preferência salva
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+    }
+  
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        
+        // Alterna o ícone
+        if (isDark) {
+            icon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+        } else {
+            icon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+        }
+        
+        // Salva a preferência
+        localStorage.setItem('darkMode', isDark);
+    });
+  }
+  
+  // Inicializa quando o documento estiver pronto
+  document.addEventListener('DOMContentLoaded', () => {
+    initMatrix();
+    initDarkMode();
+  });
