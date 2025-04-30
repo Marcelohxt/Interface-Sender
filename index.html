@@ -307,6 +307,9 @@
                             <button class="btn btn-sm btn-success" id="btnImportarCSV">
                                 <i class="bi bi-file-earmark-spreadsheet"></i> Importar CSV
                             </button>
+                            <button class="btn btn-sm btn-success" id="btnExportarCSV">
+                                <i class="bi bi-file-earmark-spreadsheet"></i> Exportar CSV
+                            </button>
                             <button class="btn btn-sm btn-info" id="btnImportarGrupo">
                                 <i class="bi bi-people"></i> Importar Grupo
                             </button>
@@ -461,6 +464,132 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+    <!-- Modal de Configurações -->
+    <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="configModalLabel">
+                        <i class="bi bi-gear"></i> Configurações
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Abas de Configuração -->
+                    <ul class="nav nav-tabs" id="configTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="whatsapp-tab" data-bs-toggle="tab"
+                                data-bs-target="#whatsapp" type="button" role="tab">
+                                <i class="bi bi-whatsapp"></i> WhatsApp
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="geral-tab" data-bs-toggle="tab" data-bs-target="#geral"
+                                type="button" role="tab">
+                                <i class="bi bi-sliders"></i> Geral
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="mensagens-tab" data-bs-toggle="tab" data-bs-target="#mensagens"
+                                type="button" role="tab">
+                                <i class="bi bi-chat-dots"></i> Mensagens
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Conteúdo das Abas -->
+                    <div class="tab-content mt-3" id="configTabsContent">
+                        <!-- Aba WhatsApp -->
+                        <div class="tab-pane fade show active" id="whatsapp" role="tabpanel">
+                            <div class="mb-3">
+                                <label for="apiKey" class="form-label">Chave da API WhatsApp</label>
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="apiKey"
+                                        placeholder="Digite sua chave da API">
+                                    <button class="btn btn-outline-secondary" type="button" id="toggleApiKey">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                </div>
+                                <small class="text-muted">Sua chave da API do WhatsApp Business</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="delayEnvio" class="form-label">Intervalo entre mensagens (segundos)</label>
+                                <input type="number" class="form-control" id="delayEnvio" min="1" value="10">
+                                <small class="text-muted">Tempo de espera entre o envio de cada mensagem</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="maxTentativas" class="form-label">Máximo de tentativas de envio</label>
+                                <input type="number" class="form-control" id="maxTentativas" min="1" value="3">
+                                <small class="text-muted">Número máximo de tentativas em caso de falha</small>
+                            </div>
+                        </div>
+
+                        <!-- Aba Geral -->
+                        <div class="tab-pane fade" id="geral" role="tabpanel">
+                            <div class="mb-3">
+                                <label class="form-label d-block">Tema da Interface</label>
+                                <div class="btn-group" role="group">
+                                    <input type="radio" class="btn-check" name="tema" id="temaClaro" checked>
+                                    <label class="btn btn-outline-primary" for="temaClaro">
+                                        <i class="bi bi-sun"></i> Claro
+                                    </label>
+                                    <input type="radio" class="btn-check" name="tema" id="temaEscuro">
+                                    <label class="btn btn-outline-primary" for="temaEscuro">
+                                        <i class="bi bi-moon"></i> Escuro
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="notificacoes">
+                                    <label class="form-check-label" for="notificacoes">Ativar notificações</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba Mensagens -->
+                        <div class="tab-pane fade" id="mensagens" role="tabpanel">
+                            <div class="mb-3">
+                                <label for="assinatura" class="form-label">Assinatura padrão</label>
+                                <textarea class="form-control" id="assinatura" rows="2"></textarea>
+                                <small class="text-muted">Será adicionada ao final das mensagens</small>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="confirmacaoLeitura">
+                                    <label class="form-check-label" for="confirmacaoLeitura">Solicitar confirmação de
+                                        leitura</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="saveConfig">
+                        <i class="bi bi-save"></i> Salvar Configurações
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>

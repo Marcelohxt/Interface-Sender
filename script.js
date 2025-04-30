@@ -285,3 +285,123 @@ function initMatrix() {
     initMatrix();
     initDarkMode();
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+// Configurações do WhatsApp
+function initConfiguracao() {
+    // Elementos do DOM
+    const configModal = document.getElementById('configModal');
+    const apiKeyInput = document.getElementById('apiKey');
+    const toggleApiKey = document.getElementById('toggleApiKey');
+    const saveConfig = document.getElementById('saveConfig');
+    const delayEnvio = document.getElementById('delayEnvio');
+    const maxTentativas = document.getElementById('maxTentativas');
+    const temaClaro = document.getElementById('temaClaro');
+    const temaEscuro = document.getElementById('temaEscuro');
+    const notificacoes = document.getElementById('notificacoes');
+    const assinatura = document.getElementById('assinatura');
+    const confirmacaoLeitura = document.getElementById('confirmacaoLeitura');
+
+    // Carregar configurações salvas
+    function loadConfig() {
+        apiKeyInput.value = localStorage.getItem('apiKey') || '';
+        delayEnvio.value = localStorage.getItem('delayEnvio') || '10';
+        maxTentativas.value = localStorage.getItem('maxTentativas') || '3';
+        temaEscuro.checked = localStorage.getItem('temaEscuro') === 'true';
+        temaClaro.checked = !temaEscuro.checked;
+        notificacoes.checked = localStorage.getItem('notificacoes') === 'true';
+        assinatura.value = localStorage.getItem('assinatura') || '';
+        confirmacaoLeitura.checked = localStorage.getItem('confirmacaoLeitura') === 'true';
+
+        // Aplicar tema
+        document.body.classList.toggle('dark-mode', temaEscuro.checked);
+    }
+
+    // Salvar configurações
+    function saveConfiguracoes() {
+        localStorage.setItem('apiKey', apiKeyInput.value);
+        localStorage.setItem('delayEnvio', delayEnvio.value);
+        localStorage.setItem('maxTentativas', maxTentativas.value);
+        localStorage.setItem('temaEscuro', temaEscuro.checked);
+        localStorage.setItem('notificacoes', notificacoes.checked);
+        localStorage.setItem('assinatura', assinatura.value);
+        localStorage.setItem('confirmacaoLeitura', confirmacaoLeitura.checked);
+
+        // Aplicar tema
+        document.body.classList.toggle('dark-mode', temaEscuro.checked);
+
+        // Mostrar feedback
+        showToast('Configurações salvas com sucesso!', 'success');
+    }
+
+    // Toggle visibilidade da API Key
+    toggleApiKey.addEventListener('click', () => {
+        const type = apiKeyInput.type === 'password' ? 'text' : 'password';
+        apiKeyInput.type = type;
+        toggleApiKey.innerHTML = `<i class="bi bi-eye${type === 'password' ? '' : '-slash'}"></i>`;
+    });
+
+    // Salvar ao clicar no botão
+    saveConfig.addEventListener('click', () => {
+        saveConfiguracoes();
+        bootstrap.Modal.getInstance(configModal).hide();
+    });
+
+    // Carregar configurações quando abrir o modal
+    configModal.addEventListener('show.bs.modal', loadConfig);
+
+    // Alternar tema
+    temaClaro.addEventListener('change', () => {
+        document.body.classList.remove('dark-mode');
+    });
+
+    temaEscuro.addEventListener('change', () => {
+        document.body.classList.add('dark-mode');
+    });
+}
+
+// Função para mostrar toast de feedback
+function showToast(message, type = 'info') {
+    const toastContainer = document.createElement('div');
+    toastContainer.className = 'position-fixed bottom-0 end-0 p-3';
+    toastContainer.style.zIndex = '1050';
+
+    toastContainer.innerHTML = `
+        <div class="toast align-items-center text-white bg-${type}" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    ${message}
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(toastContainer);
+    const toast = new bootstrap.Toast(toastContainer.querySelector('.toast'));
+    toast.show();
+
+    // Remover após fechar
+    toastContainer.addEventListener('hidden.bs.toast', () => {
+        document.body.removeChild(toastContainer);
+    });
+}
+
+// Inicializar quando o documento estiver pronto
+document.addEventListener('DOMContentLoaded', () => {
+    initConfiguracao();
+    // ... rest of the existing initialization code ...
+});

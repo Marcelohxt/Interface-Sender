@@ -126,33 +126,44 @@ body {
 }
 
 /* Botões */
+/* === BOTÕES PEQUENOS, BONITOS E ALINHADOS === */
+.btn-group {
+    display: flex;                 /* Usa Flexbox para alinhar os botões em linha */
+    flex-wrap: wrap;              /* Permite que os botões quebrem para a próxima linha se necessário */
+    gap: 1px;                     /* Espaço de 6px entre os botões */
+    justify-content: flex-start; /* Alinha os botões à esquerda do container */
+}
+
 .btn-group .btn {
-    padding: 0.2rem 0.5rem;
-    font-size: 0.75rem;          /* Reduz o tamanho da fonte dos botões */
-    margin: 0 2px;               /* Diminui o espaçamento entre os botões */
-    line-height: 1;              /* Reduz a altura da linha do texto */
-    padding: 0.15rem 0.35rem;    /* Reduz o padding interno dos botões */
+    flex: 1 1 20%;                /* Faz o botão ocupar cerca de 22% da largura, com flexibilidade para crescer ou encolher */
+    min-width: 80px;            /* Define uma largura mínima para manter a legibilidade */
+    max-width: 160px;            /* Limita a largura máxima para não ficar exagerado */
+    text-align: center;          /* Centraliza o texto dentro do botão */
+    padding: 0.25rem 0.6rem;      /* Espaçamento interno vertical e horizontal */
+    font-size: 0.7rem;           /* Tamanho da fonte um pouco reduzido */
+    font-weight: 500;            /* Peso da fonte médio (semibold) */
+    border-radius: 4px;          /* Cantos arredondados suaves */
+    color: #075e54;              /* Cor do texto (verde escuro estilo WhatsApp) */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco levemente transparente */
+    border: 1px solid #25d366;   /* Borda verde estilo WhatsApp */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra leve para destacar o botão */
+    transition: all 0.2s ease-in-out; /* Transição suave ao passar o mouse */
 }
 
-.btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #2d3436;
-    font-size: 0.85rem;
-    font-weight: 500;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
+/* Hover bonito estilo WhatsApp */
+.btn-group .btn:hover {
+    background-color: #25d366;   /* Muda o fundo para verde WhatsApp ao passar o mouse */
+    color: white;                /* Muda a cor do texto para branco */
+    border-color: #128c7e;       /* Borda fica em um verde mais escuro no hover */
+    transform: translateY(-1px); /* Move o botão 1px para cima, simulando "clique" */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Aumenta a sombra no hover para dar destaque */
 }
 
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color); 
 
-} 
+
+
+
+
 
 /* Área de Mensagem */
 #mensagem {
@@ -833,4 +844,66 @@ body {
 
 .dark-mode #matrixCanvas {
     opacity: 0.15; /* Um pouco mais visível no modo noturno */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para o Modal de Configurações */
+.modal-content {
+    border-radius: 15px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header .btn-close {
+    color: white;
+}
+
+.nav-tabs .nav-link {
+    color: var(--primary-color);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Estilo para inputs de configuração */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(37, 211, 102, 0.25);
+}
+
+/* Botões de configuração */
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Toast de notificação */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    min-width: 200px;
+    z-index: 1050;
 }
